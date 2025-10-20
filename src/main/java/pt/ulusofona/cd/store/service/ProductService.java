@@ -70,4 +70,9 @@ public class ProductService {
         Product product = getProductById(id);
         productRepository.delete(product);
     }
+
+    public int setProductsInactiveBySupplierId(String id){
+        UUID supplierUuid = UUID.fromString(id);
+        return productRepository.setProductsInactiveBySupplierId(supplierUuid);
+    }
 }

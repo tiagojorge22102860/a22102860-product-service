@@ -15,4 +15,9 @@ public interface ProductRepository extends JpaRepository<Product, UUID> {
     List<Product> findByNameContainingIgnoreCase(String name);
     List<Product> findByPriceBetween(BigDecimal minPrice, BigDecimal maxPrice);
     List<Product> findBySupplierId(UUID supplierId);
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE Product p SET p.isDiscontinued = false WHERE p.supplierId = :supplierId")
+    int setProductsInactiveBySupplierId(@Param("supplierId") UUID supplierId);
 }

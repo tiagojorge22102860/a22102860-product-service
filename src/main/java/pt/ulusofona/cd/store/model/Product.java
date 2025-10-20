@@ -55,6 +55,9 @@ public class Product {
     @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
 
+    @Column(name = "is_discontinued", nullable = false)
+    private boolean isDiscontinued;
+
     @PrePersist
     protected void onCreate() {
         createdAt = Instant.now();

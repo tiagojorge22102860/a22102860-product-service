@@ -15,4 +15,6 @@ public class ProductResponse {
     private BigDecimal price;
     private int stock;
     private String currency;
+
+    private boolean isDiscontinued;
 }
